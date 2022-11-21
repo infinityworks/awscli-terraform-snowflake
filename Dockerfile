@@ -1,5 +1,5 @@
-FROM hashicorp/terraform:1.2.8 as terraform
-FROM amazon/aws-cli:2.7.30
+FROM hashicorp/terraform:1.3.4 as terraform
+FROM amazon/aws-cli:2.8.13
 
 RUN yum install -y python3 tar gzip unzip
 COPY --from=terraform /bin/terraform /bin/terraform
