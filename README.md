@@ -2,14 +2,13 @@
 
 A docker image containing awscli, terraform and snowflake.
 
-This image is hosted in Docker Hub [here](https://hub.docker.com/r/infinityworks/awscli-terraform-snowflake/tags).
+This image is hosted in the InfinityWorks GitHub org's container registry, you'll find it under the packages section [here](https://github.com/infinityworks/awscli-terraform-snowflake/pkgs/container/awscli-terraform-snowflake).
 
 **To update:**
 
-1. Register a Docker Hub account with IW email
-2. Get access to infinityworks organisation on Docker Hub
-3. Be added to the _Snowflake_ Docker Hub team to have the right push permissions
-4. Use the commands below to build & push from local
+1. Register a GitHub account.
+2. Get access to the infinityworks organisation on GitHub and be added to the @staff group.
+3. Use the commands below to build & push from local
 
 
 # Build the image
@@ -29,7 +28,11 @@ To access the image in a CI pipeline you'll need a PAT. Assuming you have MFA en
 
 After creating a PAT, export it to your profile (optionally include it in your .zshrc/.bashrc file).
 
+## Log in
+
     echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+
+## Tag the image
 
 You'll need to tag the image before you can push it to GitHub. List out the images and copy the ID of the version you wish to push.
 
@@ -38,7 +41,8 @@ You'll need to tag the image before you can push it to GitHub. List out the imag
     docker tag IMAGE_ID ghcr.io/infinityworks/awscli-terraform-snowflake:latest
     docker tag IMAGE_ID ghcr.io/infinityworks/awscli-terraform-snowflake:<version_goes_here>
 
-Push them
+
+## Push them
 
     docker push infinityworks/awscli-terraform-snowflake:latest
     docker push infinityworks/awscli-terraform-snowflake:<version_goes_here>
