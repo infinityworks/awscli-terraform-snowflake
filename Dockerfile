@@ -8,3 +8,5 @@ COPY --from=terraform /bin/terraform /bin/terraform
 RUN curl -sSf https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.23-linux_x86_64.bash -o snowsql.bash && \
     touch $HOME/.profile && \
     SNOWSQL_DEST=/bin SNOWSQL_LOGIN_SHELL=$HOME/.profile bash snowsql.bash && rm -f snowsql.bash
+
+LABEL org.opencontainers.image.source https://github.com/infinityworks/awscli-terraform-snowflake
